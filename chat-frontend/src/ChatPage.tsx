@@ -14,7 +14,7 @@ export default function ChatPage() {
 
   useEffect(() => {
     // 1️⃣ Load messages from DB
-    fetch(`http://localhost:5000/api/messages?user1=${senderId}&user2=${receiverId}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/messages?user1=${senderId}&user2=${receiverId}`)
       .then(res => res.json())
       .then(data => {
         const msgs = Array.isArray(data) ? data : data.messages;
